@@ -60,10 +60,10 @@ const Chart = ({ data, isRoot }) => {
             </div>
             <div className="">
               <div
-                className={` border  px-2 py`}
+                className={`px-2 py`}
                 style={{
                   color: getLabelColor(),
-                  borderColor: getLabelColor(),
+                  background: getProgressBarBackgroundColor(),
                 }}
               >
                 {getLabel()}
