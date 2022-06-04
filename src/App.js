@@ -1,5 +1,5 @@
 function App() {
-  return <div className="">Fleo Task Awesome..</div>;
+  return <div className="text-center my-2">Fleo Task Awesome..</div>;
 }
 
 export default App;
