@@ -39,11 +39,12 @@ const Chart = ({ data, isRoot }) => {
     return "#94df3a";
   };
   return (
-    <div className="grid  gap-3">
+    <div className="grid  gap-4">
       <div className="w-96 justify-self-center">
-        {isRoot ? "" : <div className=""></div>}
         <div
-          className="bg-[white] p-4 rounded cursor-pointer"
+          className={`bg-[white] p-4 rounded cursor-pointer ${
+            isRoot ? "" : "chart"
+          } ${data.children.length > 0 && expand ? "expandable-chart" : ""}`}
           onClick={handleClick}
         >
           <div className="flex justify-between items-center mb-6">
@@ -85,11 +86,14 @@ const Chart = ({ data, isRoot }) => {
           </div>
         </div>
       </div>
-      {expand ? (
-        <div className="flex gap-2">
-          {data.children.map((child, index) => {
-            return <Chart data={child} key={index} isRoot={false} />;
-          })}
+      {expand && data.children.length > 0 ? (
+        <div className="grid">
+          <hr className="hr" />
+          <div className="flex gap-6">
+            {data.children.map((child, index) => {
+              return <Chart data={child} key={index} isRoot={false} />;
+            })}
+          </div>
         </div>
       ) : (
         ""
